@@ -124,7 +124,7 @@ const getShowMoreBtnTemplate = () => {
   `)
 }
 
-const getProfileStatusTemplate = () => {
+const getProfileStatusTemplate = () => { 
   return (`
     <section class="header__profile profile">
       <p class="profile__rating">Movie Buff</p>
@@ -137,13 +137,13 @@ const render = (container, template, place = 'beforeend') => {
   container.insertAdjacentHTML(place, template)
 }
 
-const $siteHeader = document.querySelector('.header')
-const $siteMain = document.querySelector('.main')
+const siteHeaderElement = document.querySelector('.header')
+const siteMainElement = document.querySelector('.main')
 
-render($siteHeader, getProfileStatusTemplate())
-render($siteMain, getMenuTemplate(), 'afterbegin')
+render(siteHeaderElement, getProfileStatusTemplate())
+render(siteMainElement, getMenuTemplate(), 'afterbegin')
 
-const $filmsContainer = $siteMain.querySelector('.films-list__container')
+const $filmsContainer = siteMainElement.querySelector('.films-list__container')
 
 new Array(FILMS_COUNT)
 .fill('')
@@ -151,7 +151,7 @@ new Array(FILMS_COUNT)
   render($filmsContainer,getFilmCardTemplate())
 })
 
-render($siteMain, getShowMoreBtnTemplate())
+render(siteMainElement, getShowMoreBtnTemplate())
 
 const $footer = document.querySelector('.footer')
 render($footer, getPopUpTemplate(), 'afterend') 
